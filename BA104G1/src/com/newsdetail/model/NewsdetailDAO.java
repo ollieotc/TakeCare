@@ -107,7 +107,7 @@ public class NewsdetailDAO implements NewsdetailDAO_interface{
 			pstmt.setString(2, newsdetailVO.getNewstitle());
 			pstmt.setString(3, newsdetailVO.getNewsintro());
 			pstmt.setString(4, newsdetailVO.getEmpno());
-//			pstmt.setBytes(5, newsdetailVO.getCoverpic());
+			pstmt.setBytes(5, newsdetailVO.getCoverpic());
 			pstmt.setTimestamp(6, newsdetailVO.getNewsdate());
 			pstmt.setString(7, newsdetailVO.getStatus());
 			pstmt.executeUpdate();

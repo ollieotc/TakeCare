@@ -91,7 +91,7 @@
 			<td>${newsdetailVO.newsintro}</td>
 			<td>${newsdetailVO.empno}</td>
 			<td><img height=100 src="<%=request.getContextPath()%>/DBGifReader4.do?newsno=${newsdetailVO.newsno}"></td>
-			<td>${new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(newsdetailVO.newsdate)}</td>
+			<td>${newsdetailVO.newsdate}</td>
 			<td>${newsdetailVO.status}</td>
 			<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/newsdetail/newsdetail.do" style="margin-bottom: 0px;">

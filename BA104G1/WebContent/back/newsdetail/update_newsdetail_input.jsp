@@ -91,6 +91,10 @@ NewsdetailVO newsdetailVO = (NewsdetailVO) request.getAttribute("newsdetailVO");
 		<td> <input type="radio" name="status" value="上架" ${(newsdetailVO.status == '上架')?'checked':'' }> 上架 
 		<input type="radio" name="status" value="下架" ${(newsdetailVO.status == '下架')?'checked':'' }> 下架 </td>
 	</tr>
+	<tr>
+	 	<td>上傳圖片:</td> 
+	 	<td><input type="file" name="coverpic" id="coverpic" multiple="multiple" class="file-loading"></td>
+	</tr>
 
 
 </table>

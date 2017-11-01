@@ -111,25 +111,8 @@ $(document).ready(function (){
 		<input type="radio" name="status" value="下架"> 下架 </td>
 	</tr>
 	<tr>
- 	<td>上傳圖片:</td> 
-<!--  	<td><input type="file" name="coverpic" id="coverpic" multiple="multiple" class="file-loading"></td> -->
-<!-- 	<td> -->
-	<td>
-	<form class="form1">
-    <input type="file" name="upload[]" class="upload" multiple>    
-    <div>
-        <div class="img"></div>
-        <div class="img"></div>
-        <div class="img"></div>
-        <div class="img"></div>
-        <div class="img"></div>
-    </div>
-	</form>
-
-
-	</td>
-
-
+	 	<td>上傳圖片:</td> 
+	 	<td><input type="file" name="coverpic" id="coverpic" multiple="multiple" class="file-loading"></td>
 	</tr>
 </table>
 <br>

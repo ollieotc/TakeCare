@@ -14,7 +14,7 @@ import com.newsdetail.model.*;
 
 
 @WebServlet("/NewsdetailServlet")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 5 * 1024 * 1024, maxRequestSize = 5 * 5 * 1024 * 1024)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 100 * 1024 * 1024, maxRequestSize = 5 * 5 * 1024 * 1024)
 public class NewsdetailServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -54,17 +54,17 @@ public class NewsdetailServlet extends HttpServlet {
 				
 				String status = new String(req.getParameter("status"));
 				
-//				Part part = req.getPart("coverpic");
-//				InputStream in = part.getInputStream();
-//				byte[] coverpic = new byte[in.available()];
-//				in.read(coverpic);
-//				in.close();
+				Part img = req.getPart("coverpic");
+				InputStream in = img.getInputStream();
+				byte[] coverpic = new byte[in.available()];
+				in.read(coverpic);
+				in.close();
 				
 				NewsdetailVO newsdetailVO = new NewsdetailVO();
 				newsdetailVO.setNewstitle(newstitle);
 				newsdetailVO.setNewsintro(newsintro);
 				newsdetailVO.setEmpno(empno);
-//				newsdetailVO.setCoverpic(coverpic);
+				newsdetailVO.setCoverpic(coverpic);
 				newsdetailVO.setStatus(status);
 				
 				
@@ -122,6 +122,14 @@ public class NewsdetailServlet extends HttpServlet {
 				
 				String empno = new String(req.getParameter("empno").trim());
 				
+//				Part img = req.getPart("coverpic");
+//				byte[] coverpic = null;
+//				if (coverpic.getsize()==0 ){
+//					
+//				} else {
+//					
+//				}
+				
 				
 				Timestamp newsdate = new Timestamp(System.currentTimeMillis());
 				
@@ -132,7 +140,7 @@ public class NewsdetailServlet extends HttpServlet {
 				newsdetailVO.setNewstitle(newstitle);
 				newsdetailVO.setNewsintro(newsintro);
 				newsdetailVO.setEmpno(empno);
-//				newsdetailVO.setCoverpic(coverpic);
+				newsdetailVO.setCoverpic(coverpic);
 				newsdetailVO.setNewsdate(newsdate);
 				newsdetailVO.setStatus(status);
 				
@@ -307,16 +315,16 @@ public class NewsdetailServlet extends HttpServlet {
 	}
 }	
 	
-//	// 取出上傳的檔案名稱 (因為API未提供method,所以必須自行撰寫)
-//	public String getFileNameFromPart(Part part) {
-//		String header = part.getHeader("content-disposition");
-////		System.out.println("header=" + header); // 測試用
-//		String filename = new File(header.substring(header.lastIndexOf("=") + 2, header.length() - 1)).getName();
-////		System.out.println("filename=" + filename); // 測試用
-//		if (filename.length() == 0) {
-//			return null;
-//		}
-//		return filename;
-//	}
-//
-//}
+	// 取出上傳的檔案名稱 (因為API未提供method,所以必須自行撰寫)
+	public String getFileNameFromPart(Part part) {
+		String header = part.getHeader("content-disposition");
+//		System.out.println("header=" + header); // 測試用
+		String filename = new File(header.substring(header.lastIndexOf("=") + 2, header.length() - 1)).getName();
+//		System.out.println("filename=" + filename); // 測試用
+		if (filename.length() == 0) {
+			return null;
+		}
+		return filename;
+	}
+
+}
