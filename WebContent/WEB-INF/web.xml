@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>BA104G1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/Takecare</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <servlet>
+    <servlet-name>NewsdetailServlet</servlet-name>
+    <servlet-class>com.newsdetail.controller.NewsdetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsdetailServlet</servlet-name>
+    <url-pattern>/newsdetail/newsdetail.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CarComplainServlet</servlet-name>
+    <servlet-class>com.carcomplain.controller.CarComplainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarComplainServlet</servlet-name>
+    <url-pattern>/carcomplain/carcomplain.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.order.controller.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/order/order.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DBGifReader4</servlet-name>
+    <servlet-class>com.newsdetail.controller.DBGifReader4</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DBGifReader4</servlet-name>
+    <url-pattern>/DBGifReader4.do</url-pattern>
+  </servlet-mapping>
+</web-app>
