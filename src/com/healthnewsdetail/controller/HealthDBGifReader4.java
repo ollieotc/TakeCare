@@ -1,4 +1,4 @@
-package com.newsdetail.controller;
+package com.healthnewsdetail.controller;
 //
 import java.io.*;
 import java.sql.*;
@@ -9,7 +9,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.sql.DataSource;
  
-public class DBGifReader4 extends HttpServlet {
+public class HealthDBGifReader4 extends HttpServlet {
 
 	Connection con;
 
@@ -22,15 +22,16 @@ public class DBGifReader4 extends HttpServlet {
 
 		try {
 			Statement stmt = con.createStatement();
-			String newsno = req.getParameter("newsno");
-			String newsno2 = new String(newsno.getBytes("ISO-8859-1"),"UTF-8");
+			String healthNo = req.getParameter("healthNo");
+			String healthNo2 = new String(healthNo.getBytes("ISO-8859-1"),"UTF-8");
 			ResultSet rs = stmt.executeQuery(
-				"SELECT COVERPIC FROM NEWSDETAIL WHERE NEWSNO = '"+ newsno2+"'");
+				"SELECT COVERPIC FROM HEALTHNEWSDETAIL WHERE HEALTHNO = '"+ healthNo2 +"'");
 
 			if (rs.next()) {
 				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream(1));
 				byte[] buf = new byte[4 * 1024]; // 4K buffer
 				int len;
+				System.out.println("iffffffffffffffffffff");
 				while ((len = in.read(buf)) != -1) {
 					out.write(buf, 0, len);
 				}
@@ -38,6 +39,7 @@ public class DBGifReader4 extends HttpServlet {
 			} else {
 				InputStream in = getServletContext().getResourceAsStream("/img/notimg.jpg");
 				byte[] buf = new byte[(in.available())];
+				System.out.println("elseeeeeeeeeeeeeeeeeeeeeeeee");
 				in.read(buf);
 				out.write(buf);
 				in.close();

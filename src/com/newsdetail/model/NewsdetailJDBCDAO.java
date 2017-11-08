@@ -13,11 +13,11 @@ public class NewsdetailJDBCDAO implements NewsdetailDAO_interface{
 	String passwd = "ba104g1";
 	
 //	// ************** AWS **************
-	String url = "jdbc:oracle:thin:@13.229.86.22:1521:XE";
+//	String url = "jdbc:oracle:thin:@13.229.86.22:1521:XE";
 	// ************** BA104 **************
 //	String url = "jdbc:oracle:thin:@10.120.25.6:1521:XE";
 //	// ************* Localhost **********
-//	String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	
 	
 	

@@ -12,10 +12,10 @@ public class NewsdetailVO {
 //	private byte[] newspic2;
 //	private byte[] newspic3;
 //	private byte[] newspic4;
+	
+	
 	private Timestamp newsdate;
 	private String status;
-	
-	
 	public String getNewsno() {
 		return newsno;
 	}
@@ -46,30 +46,6 @@ public class NewsdetailVO {
 	public void setCoverpic(byte[] coverpic) {
 		this.coverpic = coverpic;
 	}
-//	public byte[] getNewspic1() {
-//		return newspic1;
-//	}
-//	public void setNewspic1(byte[] newspic1) {
-//		this.newspic1 = newspic1;
-//	}
-//	public byte[] getNewspic2() {
-//		return newspic2;
-//	}
-//	public void setNewspic2(byte[] newspic2) {
-//		this.newspic2 = newspic2;
-//	}
-//	public byte[] getNewspic3() {
-//		return newspic3;
-//	}
-//	public void setNewspic3(byte[] newspic3) {
-//		this.newspic3 = newspic3;
-//	}
-//	public byte[] getNewspic4() {
-//		return newspic4;
-//	}
-//	public void setNewspic4(byte[] newspic4) {
-//		this.newspic4 = newspic4;
-//	}
 	public Timestamp getNewsdate() {
 		return newsdate;
 	}
@@ -82,4 +58,6 @@ public class NewsdetailVO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
 }

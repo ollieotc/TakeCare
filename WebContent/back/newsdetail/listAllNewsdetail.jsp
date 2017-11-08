@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.text.*"%>
 <%@ page import="com.newsdetail.model.*"%>
 <%-- 此頁練習採用 EL 的寫法取值 --%>
 
@@ -9,6 +10,9 @@
 <%  NewsdetailService newsdetailSvc = new NewsdetailService();
 	List<NewsdetailVO> list = newsdetailSvc.getAll();
 	pageContext.setAttribute("list",list);
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	pageContext.setAttribute("sdf",sdf);
 %>
 
 
@@ -90,12 +94,12 @@
 			<td>${newsdetailVO.newsintro}</td>
 			<td>${newsdetailVO.empno}</td>
 			<td><img height=100 src="<%=request.getContextPath()%>/DBGifReader4.do?newsno=${newsdetailVO.newsno}"></td>
-			<td>${newsdetailVO.newsdate}</td>
+			<td>${sdf.format(newsdetailVO.newsdate)}</td>
 			<td>${newsdetailVO.status}</td>
 			<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/newsdetail/newsdetail.do" style="margin-bottom: 0px;">
 			     <input type="submit" value="修改">
-			     <input type="hidden" name="newsno"  value="${newsdetailVO.newsno}">
+			     <input type="hidden" name="newsno" value="${newsdetailVO.newsno}">
 			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
 			</td>
 			<td>

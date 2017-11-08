@@ -26,13 +26,13 @@ public class NewsdetailService {
 	}
 	
 	
-	public NewsdetailVO updateNews(String newsno, String newstitle, String newsintro, String empno, Timestamp newsdate, String status){
+	public NewsdetailVO updateNews(String newsno, String newstitle, String newsintro, String empno, byte[] coverpic ,Timestamp newsdate, String status){
 		NewsdetailVO newsdetailVO = new NewsdetailVO();
 		newsdetailVO.setNewsno(newsno);
 		newsdetailVO.setNewstitle(newstitle);
 		newsdetailVO.setNewsintro(newsintro);
 		newsdetailVO.setEmpno(empno);
-//		newsdetailVO.setCoverpic(coverpic);
+		newsdetailVO.setCoverpic(coverpic);
 		newsdetailVO.setNewsdate(newsdate);
 		newsdetailVO.setStatus(status);
 		dao.update(newsdetailVO);

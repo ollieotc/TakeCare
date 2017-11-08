@@ -8,8 +8,8 @@ public class HealthNewsDetailVO {
 	private String newsIntro;
 	private String emp_no;
 	private byte[] coverPic;
-	private byte[] newsPic1;
-	private byte[] newsPic2;
+//	private byte[] newsPic1;
+//	private byte[] newsPic2;
 	private Timestamp newsDate;
 	private String status;
 	
@@ -44,18 +44,18 @@ public class HealthNewsDetailVO {
 	public void setCoverPic(byte[] coverPic) {
 		this.coverPic = coverPic;
 	}
-	public byte[] getNewsPic1() {
-		return newsPic1;
-	}
-	public void setNewsPic1(byte[] newsPic1) {
-		this.newsPic1 = newsPic1;
-	}
-	public byte[] getNewsPic2() {
-		return newsPic2;
-	}
-	public void setNewsPic2(byte[] newsPic2) {
-		this.newsPic2 = newsPic2;
-	}
+//	public byte[] getNewsPic1() {
+//		return newsPic1;
+//	}
+//	public void setNewsPic1(byte[] newsPic1) {
+//		this.newsPic1 = newsPic1;
+//	}
+//	public byte[] getNewsPic2() {
+//		return newsPic2;
+//	}
+//	public void setNewsPic2(byte[] newsPic2) {
+//		this.newsPic2 = newsPic2;
+//	}
 	public Timestamp getNewsDate() {
 		return newsDate;
 	}

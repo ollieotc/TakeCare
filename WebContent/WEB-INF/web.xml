@@ -15,6 +15,9 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+ 
+ 
+<!-- 最新消息  --> 
   <servlet>
     <servlet-name>NewsdetailServlet</servlet-name>
     <servlet-class>com.newsdetail.controller.NewsdetailServlet</servlet-class>
@@ -23,6 +26,20 @@
     <servlet-name>NewsdetailServlet</servlet-name>
     <url-pattern>/newsdetail/newsdetail.do</url-pattern>
   </servlet-mapping>
+ 
+<!-- 保健資訊  -->
+  <servlet>
+    <servlet-name>HealthNewsDetailServlet</servlet-name>
+    <servlet-class>com.healthnewsdetail.controller.HealthNewsDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HealthNewsDetailServlet</servlet-name>
+    <url-pattern>/healthnewsdetail/healthnewsdetail.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <!-- 派車申訴  -->
   <servlet>
     <servlet-name>CarComplainServlet</servlet-name>
     <servlet-class>com.carcomplain.controller.CarComplainServlet</servlet-class>
@@ -31,6 +48,9 @@
     <servlet-name>CarComplainServlet</servlet-name>
     <url-pattern>/carcomplain/carcomplain.do</url-pattern>
   </servlet-mapping>
+ 
+ 
+ 
   <servlet>
     <servlet-name>OrderServlet</servlet-name>
     <servlet-class>com.order.controller.OrderServlet</servlet-class>
@@ -39,6 +59,9 @@
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/order/order.do</url-pattern>
   </servlet-mapping>
+  
+  
+<!-- news圖註冊  -->
   <servlet>
     <servlet-name>DBGifReader4</servlet-name>
     <servlet-class>com.newsdetail.controller.DBGifReader4</servlet-class>
@@ -47,4 +70,17 @@
     <servlet-name>DBGifReader4</servlet-name>
     <url-pattern>/DBGifReader4.do</url-pattern>
   </servlet-mapping>
+  
+  
+<!-- Health圖註冊  -->
+  <servlet>
+    <servlet-name>HealthDBGifReader4</servlet-name>
+    <servlet-class>com.healthNewsdetail.controller.HealthDBGifReader4</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HealthDBGifReader4</servlet-name>
+    <url-pattern>/HealthDBGifReader4.do</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>

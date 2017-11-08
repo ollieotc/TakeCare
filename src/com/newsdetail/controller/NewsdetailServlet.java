@@ -44,19 +44,21 @@ public class NewsdetailServlet extends HttpServlet {
 				if( newstitle == null || newstitle.trim().length() ==0){
 					errorMsgs.add("文章標題請勿空白");
 				}
+				System.out.println("-----------"+ newstitle);
 				
 				String newsintro = req.getParameter("newsintro");
 				if( newsintro == null || newsintro.trim().length() ==0){
 					errorMsgs.add("文章內容請勿留空");
 				}
+				System.out.println("-----------"+ newsintro);
 				
-				String empno = new String(req.getParameter("empno").trim());
+				String empno = req.getParameter("empno").trim();
 				
-				String status = new String(req.getParameter("status"));
+				String status = req.getParameter("status");
 				
 				Part img = req.getPart("coverpic");
 				byte[] coverpic = getPictureByteArray(img);
-				System.out.println(coverpic);
+				
 				
 				
 				NewsdetailVO newsdetailVO = new NewsdetailVO();
@@ -105,9 +107,9 @@ public class NewsdetailServlet extends HttpServlet {
 			// send the ErrorPage view.
 			req.setAttribute("errorMsgs", errorMsgs);
 		
-			try {
+//			try {
 				/***************************1.接收請求參數 - 輸入格式的錯誤處理**********************/
-				String newsno = req.getParameter("newsno").trim();
+				String newsno = req.getParameter("newsno");
 				
 				String newstitle = req.getParameter("newstitle");
 				if( newstitle == null || newstitle.trim().length() ==0){
@@ -119,16 +121,17 @@ public class NewsdetailServlet extends HttpServlet {
 					errorMsgs.add("文章內容請勿留空");
 				}
 				
-				String empno = new String(req.getParameter("empno").trim());
+				String empno = req.getParameter("empno");
 				
+				NewsdetailVO newsdetailVO2 = new NewsdetailVO();
 				Part img = req.getPart("coverpic");
 				byte[] coverpic = null;
-				if (coverpic.length ==0 ){
-					
+				if (img.getSize() != 0 ){
+					coverpic = getPictureByteArray(img);
 				} else {
-					
+					coverpic = newsdetailVO2.getCoverpic();
 				}
-				
+			
 				
 				Timestamp newsdate = new Timestamp(System.currentTimeMillis());
 				
@@ -139,7 +142,7 @@ public class NewsdetailServlet extends HttpServlet {
 				newsdetailVO.setNewstitle(newstitle);
 				newsdetailVO.setNewsintro(newsintro);
 				newsdetailVO.setEmpno(empno);
-//				newsdetailVO.setCoverpic(coverpic);
+				newsdetailVO.setCoverpic(coverpic);
 				newsdetailVO.setNewsdate(newsdate);
 				newsdetailVO.setStatus(status);
 				
@@ -155,7 +158,7 @@ public class NewsdetailServlet extends HttpServlet {
 				
 				/***************************2.開始修改資料*****************************************/
 				NewsdetailService newsdetailSvc = new NewsdetailService();
-				newsdetailVO = newsdetailSvc.updateNews(newsno, newstitle, newsintro, empno ,newsdate, status);
+				newsdetailVO = newsdetailSvc.updateNews(newsno, newstitle, newsintro, empno ,coverpic ,newsdate, status);
 								
 				/***************************3.修改完成,準備轉交(Send the Success view)*************/
 				req.setAttribute("newsdetailVO", newsdetailVO); // 資料庫update成功後,正確的的empVO物件,存入req
@@ -164,13 +167,13 @@ public class NewsdetailServlet extends HttpServlet {
 				successView.forward(req, res);
 
 				/***************************其他可能的錯誤處理*************************************/
-			} catch (Exception e) {
-				errorMsgs.add("修改資料失敗:"+e.getMessage());
-				
-				RequestDispatcher failureView = req
-						.getRequestDispatcher("/back/newsdetail/update_newsdetail_input.jsp");
-				failureView.forward(req, res);
-			}
+//			} catch (Exception e) {
+//				errorMsgs.add("修改資料失敗:"+e.getMessage());
+//				
+//				RequestDispatcher failureView = req
+//						.getRequestDispatcher("/back/newsdetail/update_newsdetail_input.jsp");
+//				failureView.forward(req, res);
+//			}
 		}
 		
 /************************************** getOne_For_Display **********************************************************************************/		
@@ -309,11 +312,13 @@ public class NewsdetailServlet extends HttpServlet {
 			}
 		}
 	}
+	
+	
 	public static byte[] getPictureByteArray(Part part) throws IOException{
 		
 		InputStream in = part.getInputStream();
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		byte[] buffer = new byte[8192]; //自動緩衝區
+		byte[] buffer = new byte[in.available()]; //自動緩衝區
 		int i;
 		while((i = in.read(buffer)) != -1){
 			baos.write(buffer, 0, i); // (哪個陣列,開始索引值,緩衝區資料大小)

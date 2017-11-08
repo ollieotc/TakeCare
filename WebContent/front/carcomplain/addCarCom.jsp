@@ -93,7 +93,7 @@
 
 
 <font color=blue>request.getParameter("requestURL"):</font> <%=request.getParameter("requestURL")%><br>
-<font color=blue>request.getParameter("whichPage"): </font> <%=request.getParameter("whichPage")%></br>
+<font color=blue>request.getParameter("whichPage"): </font> <%=request.getParameter("whichPage")%><br>
  
 
 </body>
