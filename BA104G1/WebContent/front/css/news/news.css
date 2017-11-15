@@ -1,0 +1,118 @@
+<style type="text/css">
+
+
+/* 最上面的banner*/
+.bannan{
+  width: 100%;
+  height: 380px;
+}
+
+
+/* 分隔線 */
+.media{
+  padding: 20px 10px 20px 10px;
+}
+/* 分隔線 */
+
+
+/* cp1 大標題第一區 專用 */
+.cp1{
+    margin-top:1%; 
+    margin-left:1.6%; 
+    margin-bottom: 1%;
+}
+
+#imaginary_container{
+   margin-top:8%; 
+   margin-bottom: 1%;
+}
+/* search bar專用 */
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+  border-right:0; 
+  box-shadow:0 0 0; 
+  border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+/* search bar專用 */
+
+/* breadcrumb 麵包屑專用 */
+ .bread_one li:before{
+  /*border-left: 1px solid #000;*/
+     content: '/';
+     color: #fa0;
+  }
+
+/* breadcrumb 麵包屑專用 */
+
+
+/* 隱藏字幕 */
+
+p{
+  width:400px;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  overflow: hidden;
+}
+
+/* 隱藏字幕 */
+ 
+
+
+/* 內容button */
+
+.button {
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #FF8000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 15px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* 內容button */
+
+/* 內容大標題 */
+.chadddd{
+  color: #FFAF60;
+}
+/* 內容大標題 */
+
+</style>
